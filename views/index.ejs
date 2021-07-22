@@ -71,12 +71,12 @@
                 </td>
                 <%if (todoItem.type==='to eat' ) { %>
                   <td class="icon">
-                    <i class="fas fa-utensils"></i>
+                    <i class="fas fa-utensils" style="color: rgb(255, 166, 0);"></i>
                   </td>
                     <% } %>
                 <%if (todoItem.type==='to read' ) { %>
                   <td class="icon">
-                    <i class="fas fa-book"></i>
+                    <i class="fas fa-book" style="color: rgb(0, 89, 255);"></i>
                   </td>
                     <% } %>
                     <%if (todoItem.type==='to watch' ) { %>
@@ -86,14 +86,14 @@
                     <% } %>
                     <%if (todoItem.type==='to shop' ) { %>
                       <td class="icon">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-shopping-cart" style="color: red;"></i>
                   </td>
                     <% } %>
                 <td>
                   <form method="POST" action="/users/<%= todoItem.user_id %>/<%= todoItem.todolist_id %>?_method=PUT"
                     id="changeCate">
                     <select class="btn btn-danger dropdown-toggle" name="categoryDropdown" class="categoryDropdown"
-                      method="PUT">
+                      method="PUT" onchange="this.form.submit()">
                       <option selected="true" disabled="disabled" value="">Change</option>
 
                       <% for(let type of types) { %>
@@ -102,8 +102,8 @@
                         </option>
                         <% } %>
                     </select>
-                    <button type="submit" class="button is-primary is-rounded"
-                      style="margin-bottom:10px"><strong>Update</strong></button>
+                    <!-- <button type="submit" class="button is-primary is-rounded"
+                      style="margin-bottom:10px"><strong>Update</strong></button> -->
                   </form>
                 </td>
                 <td>
